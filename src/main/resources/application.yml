@@ -1,0 +1,69 @@
+
+server:
+  port: 8060
+Spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  datasource:
+    url: jdbc:mysql://139.155.31.185:3306/user?useUnicode=ture&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 612726
+    username: root
+  redis:
+    database: 0
+    host: 139.155.31.185
+    port: 20000
+    password: 123456
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+  mail:
+    host: smtp.exmail.qq.com
+    username: zhangsiyuan@vtnmc.cn
+    password: Zsyay101
+    default-encoding: utf-8
+    properties:
+      mail:
+        stmp:
+          auth: true
+          ssl:
+            enabli: true
+            socketFactory:
+              class: com.sun.mail.util.MailSSLSocketFactory
+              fallback: false
+    port: 465
+  thymeleaf:
+    cache: false
+    prefix: classpath:/views/
+  resources:
+    static-locations: ["/templates/","/static/"]
+    add-mappings: false
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 50MB
+
+mybatis:
+  mapper-locations:
+    - classpath:mappers/*.xml
+pagehelper:
+  helperDialect: mysql
+  upportMethodsArguments: true
+  supportMethodsArguments: true
+  params: count,countSql
+#kafka:
+#  producer:
+#    bootstrap-servers: kafka-1:9092
+#    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#  consumer:
+#    bootstrap-servers: kafka-1:9092
+#    group-id: ssm-secounds-kill
+#    auto-offset-reset: earliest
+#    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    topic: test
+#    thread: 3
